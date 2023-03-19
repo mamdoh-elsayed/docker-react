@@ -1,0 +1,13 @@
+sudo: required
+services:
+  - docker 
+
+
+befor_install:
+  - docker build -t kolena/docker-react -f Dockerfile.dev .
+
+
+script:
+  - docker run kolena/docker-react npm run test -- --coverage
+
+
